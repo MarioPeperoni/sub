@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var swich: Bool = true
+    
+    var subscriptions: [subscriptionData] = subscriptionList.hardCodedDefults
+    
     var body: some View {
-        
-        var subscriptions: [subscriptionData] = subscriptionList.hardCodedDefults
-        
         VStack() {
             HStack {
                 Text("Hello Walter White!")
@@ -24,22 +26,21 @@ struct ContentView: View {
                 UserIcon()
                     .padding()
             }
-            
             ScrollView() {
-                    CardBar()
-                    Divider()
+                CardBar()
+                Divider()
                 VStack(spacing: -20) {
                     ForEach(subscriptions, id: \.id) { sub in
-                        SubscriptionRow(subName: sub.subName, subPrice: sub.subPirce, subEndDate: sub.subEndDate, subActive: sub.subActive)
+                        SubscriptionRow(subName: sub.subName, subPrice: sub.subPirce, subEndDate: sub.subEndDate, subActive: sub.subActive, subDesc: sub.subDesc, subCategory: sub.subCategory)
                     }
                 }
             }
-            .overlay(alignment: .bottomTrailing) {
-                AddNewSubPlusButton()
-                    .padding()
-                    .offset(x: -30, y: -10)
-                    .shadow(radius: 20)
-            }
+        }
+        .overlay(alignment: .bottomTrailing) {
+            AddNewSubPlusButton()
+                .padding()
+                .offset(x: -30, y: -10)
+                .shadow(radius: 20)
         }
     }
 }

@@ -11,17 +11,17 @@ struct UserIcon: View {
     var body: some View {
         Circle()
             .frame(width: 50)
-            .foregroundColor(Color("AppColor"))
+            .foregroundColor(.accentColor)
             .overlay {
                 Circle()
                     .frame(width: 40)
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color("BoxColor"))
                     .overlay
-                    {
-                        Image(systemName: "person.fill")
-                            .imageScale(.large)
-                            .foregroundColor(Color("AppColor"))
-                    }
+                {
+                    Image(systemName: "person.fill")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                }
             }
     }
 }

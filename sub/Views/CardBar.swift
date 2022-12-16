@@ -11,7 +11,7 @@ struct CardBar: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 10)
             .frame(width: .infinity, height: 160)
-            .foregroundColor(.accentColor)
+            .foregroundColor(Color("BoxColor"))
             .overlay(alignment: .leading) { //Overlay for card image
                 visaCard(sizeModifier: 2.5)
                     .offset(x: -50)
@@ -30,7 +30,7 @@ struct CardBar: View {
                     .imageScale(.large)
                     .offset()
                     .padding()
-                    .foregroundColor(Color("AppColor"))
+                    .foregroundColor(.accentColor)
                     .font(.system(size: 20))
             }
             .clipped()

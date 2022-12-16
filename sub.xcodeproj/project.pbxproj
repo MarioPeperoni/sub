@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617046FC294BACCF009D2813 /* subscriptionData.swift */; };
+		61A43F57294B884900067732 /* SubscriptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A43F56294B884900067732 /* SubscriptionRow.swift */; };
 		61A5B4DB294B65D200504634 /* subApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4DA294B65D200504634 /* subApp.swift */; };
 		61A5B4DD294B65D200504634 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4DC294B65D200504634 /* ContentView.swift */; };
 		61A5B4DF294B65D300504634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61A5B4DE294B65D300504634 /* Assets.xcassets */; };
 		61A5B4E2294B65D300504634 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61A5B4E1294B65D300504634 /* Preview Assets.xcassets */; };
+		61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4E8294B6B4900504634 /* visaCard.swift */; };
+		61A5B4EB294B701A00504634 /* CardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EA294B701A00504634 /* CardBar.swift */; };
+		61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EC294B82E600504634 /* UserIcon.swift */; };
+		61B1A21C294C7B8700F8427B /* SubscriptionDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B1A21B294C7B8700F8427B /* SubscriptionDetailedView.swift */; };
+		61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		617046FC294BACCF009D2813 /* subscriptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subscriptionData.swift; sourceTree = "<group>"; };
+		61A43F56294B884900067732 /* SubscriptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionRow.swift; sourceTree = "<group>"; };
 		61A5B4D7294B65D200504634 /* sub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A5B4DA294B65D200504634 /* subApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subApp.swift; sourceTree = "<group>"; };
 		61A5B4DC294B65D200504634 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61A5B4DE294B65D300504634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61A5B4E1294B65D300504634 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		61A5B4E8294B6B4900504634 /* visaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visaCard.swift; sourceTree = "<group>"; };
+		61A5B4EA294B701A00504634 /* CardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBar.swift; sourceTree = "<group>"; };
+		61A5B4EC294B82E600504634 /* UserIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcon.swift; sourceTree = "<group>"; };
+		61B1A21B294C7B8700F8427B /* SubscriptionDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetailedView.swift; sourceTree = "<group>"; };
+		61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubPlusButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +46,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61A43F55294B878600067732 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				61A5B4DC294B65D200504634 /* ContentView.swift */,
+				61A5B4EA294B701A00504634 /* CardBar.swift */,
+				61A43F56294B884900067732 /* SubscriptionRow.swift */,
+				61B1A21B294C7B8700F8427B /* SubscriptionDetailedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		61A5B4CE294B65D200504634 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +76,10 @@
 		61A5B4D9294B65D200504634 /* sub */ = {
 			isa = PBXGroup;
 			children = (
+				61EE9D72294D12740036E51C /* Helper */,
+				61A43F55294B878600067732 /* Views */,
 				61A5B4DA294B65D200504634 /* subApp.swift */,
-				61A5B4DC294B65D200504634 /* ContentView.swift */,
+				617046FC294BACCF009D2813 /* subscriptionData.swift */,
 				61A5B4DE294B65D300504634 /* Assets.xcassets */,
 				61A5B4E0294B65D300504634 /* Preview Content */,
 			);
@@ -65,6 +92,16 @@
 				61A5B4E1294B65D300504634 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		61EE9D72294D12740036E51C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				61A5B4EC294B82E600504634 /* UserIcon.swift */,
+				61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */,
+				61A5B4E8294B6B4900504634 /* visaCard.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +174,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */,
 				61A5B4DD294B65D200504634 /* ContentView.swift in Sources */,
+				61B1A21C294C7B8700F8427B /* SubscriptionDetailedView.swift in Sources */,
+				61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */,
+				61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */,
 				61A5B4DB294B65D200504634 /* subApp.swift in Sources */,
+				61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */,
+				61A5B4EB294B701A00504634 /* CardBar.swift in Sources */,
+				61A43F57294B884900067732 /* SubscriptionRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

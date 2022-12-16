@@ -20,15 +20,18 @@ struct SubscriptionRow: View {
     let subPrice: Double
     let subEndDate: Date
     let subActive: Bool
+    let subDesc: String
+    let subCategory: String
+    
+    @State public var showSheet: Bool = false
     
     var body: some View {
-        
         Button {
-            
-        } label: {
+            showSheet = true
+        }label: {
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: .infinity, height: 100)
-                .foregroundColor(.accentColor)
+                .foregroundColor(Color("BoxColor"))
                 .overlay(alignment: .topLeading) {
                     HStack
                     {
@@ -44,9 +47,9 @@ struct SubscriptionRow: View {
                             .font(.title2)
                             .foregroundColor(.primary)
                         Spacer()
-                        Image(systemName: "arrow.right")
-                            .padding()
-                            .foregroundColor(.primary)
+                        /*Image(systemName: "hand.point.up")
+                         .padding()
+                         .foregroundColor(.primary)*/
                     }
                     .offset(y: -7)
                 }
@@ -95,11 +98,15 @@ struct SubscriptionRow: View {
                 .shadow(radius: 2)
                 .padding()
         }
+        .sheet(isPresented: $showSheet) {
+            SubscriptionDetailedView(subData: subscriptionData(subName: subName, subPirce: subPrice, subEndDate: subEndDate, subActive: subActive, subDesc: subDesc, subCategory: subCategory))
+                .presentationDetents([.medium, .large])
+        }
     }
 }
 
 struct SubscriptionRow_Previews: PreviewProvider {
     static var previews: some View {
-        SubscriptionRow(subName: "Netflix", subPrice: 43.00, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true)
+        SubscriptionRow(subName: "Netflix", subPrice: 43.00, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true, subDesc: "Dupa", subCategory: "TV")
     }
 }

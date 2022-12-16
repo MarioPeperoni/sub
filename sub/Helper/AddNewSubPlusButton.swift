@@ -11,10 +11,10 @@ struct AddNewSubPlusButton: View {
     var body: some View {
         Circle()
             .frame(width: 50)
-            .foregroundColor(Color("AppColor"))
+            .foregroundColor(.accentColor)
             .overlay {
                 Image(systemName: "plus")
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color("BoxColor"))
                     .imageScale(.large)
                     .fontWeight(.bold)
             }
