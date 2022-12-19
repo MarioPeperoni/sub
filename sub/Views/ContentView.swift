@@ -10,8 +10,9 @@ import SwiftUI
 struct ContentView: View {
     
     @State var swich: Bool = true
-    
-    var subscriptions: [subscriptionData] = subscriptionList.hardCodedDefults
+    @EnvironmentObject var lnMenager: localNotificationMenager
+    @State public var subscriptions: [subscriptionData] = subscriptionList.hardCodedDefults
+    @State var delateActionTriggered: Bool = false
     
     var body: some View {
         VStack() {
@@ -30,10 +31,21 @@ struct ContentView: View {
                 CardBar()
                 Divider()
                 VStack(spacing: -20) {
-                    ForEach(subscriptions, id: \.id) { sub in
-                        SubscriptionRow(subName: sub.subName, subPrice: sub.subPirce, subEndDate: sub.subEndDate, subActive: sub.subActive, subDesc: sub.subDesc, subCategory: sub.subCategory)
+                    ForEach(subscriptions.indices, id: \.self) { sub in
+                        SubscriptionRow(subData: $subscriptions[sub], delateActionTriggered: $delateActionTriggered)
                     }
                 }
+                .onChange(of: delateActionTriggered, perform: { newValue in
+                    for index in subscriptions.indices
+                    {
+                        if(subscriptions[index].flagedToDelete)
+                        {
+                            subscriptions.remove(at: index)
+                            delateActionTriggered = false
+                            return
+                        }
+                    }
+                })
             }
         }
         .overlay(alignment: .bottomTrailing) {
@@ -48,5 +60,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(localNotificationMenager())
     }
 }

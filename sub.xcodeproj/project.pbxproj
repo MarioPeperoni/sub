@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		615D02F4294DEBAA004135F8 /* SubDataDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D02F3294DEBAA004135F8 /* SubDataDetail.swift */; };
+		615D02F6294DEC1B004135F8 /* ImageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D02F5294DEC1B004135F8 /* ImageBox.swift */; };
 		617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617046FC294BACCF009D2813 /* subscriptionData.swift */; };
+		6180F1B529507058005B8471 /* localNotificationMenager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180F1B429507058005B8471 /* localNotificationMenager.swift */; };
+		6180F1B729507569005B8471 /* localNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180F1B629507569005B8471 /* localNotification.swift */; };
 		61A43F57294B884900067732 /* SubscriptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A43F56294B884900067732 /* SubscriptionRow.swift */; };
 		61A5B4DB294B65D200504634 /* subApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4DA294B65D200504634 /* subApp.swift */; };
 		61A5B4DD294B65D200504634 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4DC294B65D200504634 /* ContentView.swift */; };
@@ -16,12 +20,15 @@
 		61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4E8294B6B4900504634 /* visaCard.swift */; };
 		61A5B4EB294B701A00504634 /* CardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EA294B701A00504634 /* CardBar.swift */; };
 		61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EC294B82E600504634 /* UserIcon.swift */; };
-		61B1A21C294C7B8700F8427B /* SubscriptionDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B1A21B294C7B8700F8427B /* SubscriptionDetailedView.swift */; };
 		61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		615D02F3294DEBAA004135F8 /* SubDataDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDataDetail.swift; sourceTree = "<group>"; };
+		615D02F5294DEC1B004135F8 /* ImageBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBox.swift; sourceTree = "<group>"; };
 		617046FC294BACCF009D2813 /* subscriptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subscriptionData.swift; sourceTree = "<group>"; };
+		6180F1B429507058005B8471 /* localNotificationMenager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localNotificationMenager.swift; sourceTree = "<group>"; };
+		6180F1B629507569005B8471 /* localNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localNotification.swift; sourceTree = "<group>"; };
 		61A43F56294B884900067732 /* SubscriptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionRow.swift; sourceTree = "<group>"; };
 		61A5B4D7294B65D200504634 /* sub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A5B4DA294B65D200504634 /* subApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subApp.swift; sourceTree = "<group>"; };
@@ -31,7 +38,6 @@
 		61A5B4E8294B6B4900504634 /* visaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visaCard.swift; sourceTree = "<group>"; };
 		61A5B4EA294B701A00504634 /* CardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBar.swift; sourceTree = "<group>"; };
 		61A5B4EC294B82E600504634 /* UserIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcon.swift; sourceTree = "<group>"; };
-		61B1A21B294C7B8700F8427B /* SubscriptionDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetailedView.swift; sourceTree = "<group>"; };
 		61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubPlusButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,13 +52,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6180F1B829507571005B8471 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				6180F1B429507058005B8471 /* localNotificationMenager.swift */,
+				6180F1B629507569005B8471 /* localNotification.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		6180F1B929507AC0005B8471 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				617046FC294BACCF009D2813 /* subscriptionData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		61A43F55294B878600067732 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				61A5B4DC294B65D200504634 /* ContentView.swift */,
 				61A5B4EA294B701A00504634 /* CardBar.swift */,
 				61A43F56294B884900067732 /* SubscriptionRow.swift */,
-				61B1A21B294C7B8700F8427B /* SubscriptionDetailedView.swift */,
+				615D02F3294DEBAA004135F8 /* SubDataDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -76,11 +99,12 @@
 		61A5B4D9294B65D200504634 /* sub */ = {
 			isa = PBXGroup;
 			children = (
+				6180F1B829507571005B8471 /* Notification */,
 				61EE9D72294D12740036E51C /* Helper */,
 				61A43F55294B878600067732 /* Views */,
-				61A5B4DA294B65D200504634 /* subApp.swift */,
-				617046FC294BACCF009D2813 /* subscriptionData.swift */,
+				6180F1B929507AC0005B8471 /* Data */,
 				61A5B4DE294B65D300504634 /* Assets.xcassets */,
+				61A5B4DA294B65D200504634 /* subApp.swift */,
 				61A5B4E0294B65D300504634 /* Preview Content */,
 			);
 			path = sub;
@@ -100,6 +124,7 @@
 				61A5B4EC294B82E600504634 /* UserIcon.swift */,
 				61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */,
 				61A5B4E8294B6B4900504634 /* visaCard.swift */,
+				615D02F5294DEC1B004135F8 /* ImageBox.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -174,10 +199,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615D02F6294DEC1B004135F8 /* ImageBox.swift in Sources */,
 				617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */,
+				615D02F4294DEBAA004135F8 /* SubDataDetail.swift in Sources */,
 				61A5B4DD294B65D200504634 /* ContentView.swift in Sources */,
-				61B1A21C294C7B8700F8427B /* SubscriptionDetailedView.swift in Sources */,
+				6180F1B729507569005B8471 /* localNotification.swift in Sources */,
 				61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */,
+				6180F1B529507058005B8471 /* localNotificationMenager.swift in Sources */,
 				61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */,
 				61A5B4DB294B65D200504634 /* subApp.swift in Sources */,
 				61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */,
@@ -314,11 +342,14 @@
 				DEVELOPMENT_TEAM = 525474LL63;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SubMe;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,11 +374,14 @@
 				DEVELOPMENT_TEAM = 525474LL63;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SubMe;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

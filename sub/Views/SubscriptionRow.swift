@@ -16,12 +16,8 @@ struct SubscriptionRow: View {
         return formatter
     }()
     
-    let subName: String
-    let subPrice: Double
-    let subEndDate: Date
-    let subActive: Bool
-    let subDesc: String
-    let subCategory: String
+    @Binding var subData: subscriptionData
+    @Binding var delateActionTriggered: Bool
     
     @State public var showSheet: Bool = false
     
@@ -35,15 +31,15 @@ struct SubscriptionRow: View {
                 .overlay(alignment: .topLeading) {
                     HStack
                     {
-                        Image("\(subName)_Icon")
+                        Image("\(subData.subName)_Icon")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 40, height: 40)
                             .foregroundColor(.primary)
                             .cornerRadius(10)
-                            .grayscale(subActive ? 0.0 : 1.0)
+                            .grayscale(subData.subActive ? 0.0 : 1.0)
                             .padding()
-                        Text(subName)
+                        Text(subData.subName)
                             .font(.title2)
                             .foregroundColor(.primary)
                         Spacer()
@@ -60,16 +56,16 @@ struct SubscriptionRow: View {
                     }
                 }
                 .overlay(alignment: .bottomLeading) {
-                    if(subActive)
+                    if(subData.subActive)
                     {
-                        Text("Next payment: \(dateFormatter.string(from: subEndDate))")
+                        Text("Next payment: \(dateFormatter.string(from: subData.subEndDate))")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .padding()
                     }
                     else
                     {
-                        Text("End of subscription: \(dateFormatter.string(from: subEndDate))")
+                        Text("End of subscription: \(dateFormatter.string(from: subData.subEndDate))")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .padding()
@@ -77,9 +73,9 @@ struct SubscriptionRow: View {
                     Spacer()
                 }
                 .overlay(alignment: .bottomTrailing) {
-                    if(subActive)
+                    if(subData.subActive)
                     {
-                        Text(String(format: "%.f", subPrice) + " zł")
+                        Text(String(format: "%.f", subData.subPirce) + " zł")
                             .font(.subheadline)
                             .fontWeight(.bold)
                             .foregroundColor(.primary)
@@ -87,7 +83,7 @@ struct SubscriptionRow: View {
                     }
                     else
                     {
-                        Text(String(format: "%.f", subPrice) + " zł")
+                        Text(String(format: "%.f", subData.subPirce) + " zł")
                             .font(.subheadline)
                             .fontWeight(.bold)
                             .foregroundColor(.primary)
@@ -99,14 +95,19 @@ struct SubscriptionRow: View {
                 .padding()
         }
         .sheet(isPresented: $showSheet) {
-            SubscriptionDetailedView(subData: subscriptionData(subName: subName, subPirce: subPrice, subEndDate: subEndDate, subActive: subActive, subDesc: subDesc, subCategory: subCategory))
-                .presentationDetents([.medium, .large])
+            SubDataDetail(subData: $subData, showSheet: $showSheet, deleteActionTrigger: $delateActionTriggered)
+                .presentationDetents([.large])
+                .environmentObject(localNotificationMenager())
         }
     }
 }
 
 struct SubscriptionRow_Previews: PreviewProvider {
+    
+    @State static var subDataPreview: subscriptionData = subscriptionData(subName: "Netflix", subPirce: 43.00, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true, subCategory: "TV", notificationEnabled: false, reminderDelay: 0)
+    @State static var delateActionTriggered:Bool = true
+    
     static var previews: some View {
-        SubscriptionRow(subName: "Netflix", subPrice: 43.00, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true, subDesc: "Dupa", subCategory: "TV")
+        SubscriptionRow(subData: $subDataPreview, delateActionTriggered: $delateActionTriggered)
     }
 }
