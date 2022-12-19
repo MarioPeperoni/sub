@@ -11,7 +11,8 @@ struct ContentView: View {
     
     @State var swich: Bool = true
     @EnvironmentObject var lnMenager: localNotificationMenager
-    @State public var subscriptions: [subscriptionData] = subscriptionList.hardCodedDefults
+    @State public var subscriptions: [subscriptionData] = decode()
+    //ACTION TRIGGERS
     @State var delateActionTriggered: Bool = false
     
     var body: some View {
@@ -32,10 +33,13 @@ struct ContentView: View {
                 Divider()
                 VStack(spacing: -20) {
                     ForEach(subscriptions.indices, id: \.self) { sub in
-                        SubscriptionRow(subData: $subscriptions[sub], delateActionTriggered: $delateActionTriggered)
+                        SubscriptionRow(subData: $subscriptions[sub], delateActionTrigger: $delateActionTriggered, subArr: $subscriptions)
                     }
                 }
-                .onChange(of: delateActionTriggered, perform: { newValue in
+                .onChange(of: subscriptions) { newValue in
+                    encode(subsciptionDataPassed: subscriptions)
+                }
+                .onChange(of: delateActionTriggered) { newValue in
                     for index in subscriptions.indices
                     {
                         if(subscriptions[index].flagedToDelete)
@@ -45,11 +49,11 @@ struct ContentView: View {
                             return
                         }
                     }
-                })
+                }
             }
         }
         .overlay(alignment: .bottomTrailing) {
-            AddNewSubPlusButton()
+            AddNewSubPlusButton(subscriptionArr: $subscriptions)
                 .padding()
                 .offset(x: -30, y: -10)
                 .shadow(radius: 20)

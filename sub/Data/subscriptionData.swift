@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct subscriptionData: Identifiable
+struct subscriptionData: Identifiable, Codable, Equatable
 {
     internal init(id: UUID = UUID(), subName: String, subPirce: Double, subEndDate: Date, subActive: Bool, subCategory: String, notificationEnabled: Bool, reminderDelay: Int) {
         self.id = id
@@ -36,7 +36,7 @@ struct subscriptionData: Identifiable
 
 struct subscriptionList
 {
-    static var hardCodedDefults = [
+    static var list: [subscriptionData] = [
         subscriptionData(subName: "Netflix",
                          subPirce: 43.00,
                          subEndDate: Date(timeIntervalSince1970: 1671494400),
@@ -129,4 +129,18 @@ struct subscriptionList
                          notificationEnabled: false,
                          reminderDelay: 0)
     ]
+}
+func encode(subsciptionDataPassed: [subscriptionData])
+{
+    UserDefaults.standard.set(try? PropertyListEncoder().encode(subsciptionDataPassed), forKey: "subscriptionList")
+    print("Encoded")
+}
+
+func decode() -> [subscriptionData]
+{
+    if let data = UserDefaults.standard.value(forKey: "subscriptionList") as? Data {
+        subscriptionList.list = try! PropertyListDecoder().decode(Array<subscriptionData>.self, from: data)
+    }
+    print("Decoded")
+    return subscriptionList.list
 }

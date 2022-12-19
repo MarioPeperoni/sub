@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6150DFB32950D80A004621B5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6150DFB22950D80A004621B5 /* Launch Screen.storyboard */; };
 		615D02F4294DEBAA004135F8 /* SubDataDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D02F3294DEBAA004135F8 /* SubDataDetail.swift */; };
 		615D02F6294DEC1B004135F8 /* ImageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D02F5294DEC1B004135F8 /* ImageBox.swift */; };
 		617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617046FC294BACCF009D2813 /* subscriptionData.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6150DFB22950D80A004621B5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		615D02F3294DEBAA004135F8 /* SubDataDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDataDetail.swift; sourceTree = "<group>"; };
 		615D02F5294DEC1B004135F8 /* ImageBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBox.swift; sourceTree = "<group>"; };
 		617046FC294BACCF009D2813 /* subscriptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subscriptionData.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		61EE9D72294D12740036E51C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				6150DFB22950D80A004621B5 /* Launch Screen.storyboard */,
 				61A5B4EC294B82E600504634 /* UserIcon.swift */,
 				61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */,
 				61A5B4E8294B6B4900504634 /* visaCard.swift */,
@@ -187,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6150DFB32950D80A004621B5 /* Launch Screen.storyboard in Resources */,
 				61A5B4E2294B65D300504634 /* Preview Assets.xcassets in Resources */,
 				61A5B4DF294B65D300504634 /* Assets.xcassets in Resources */,
 			);
@@ -336,6 +340,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"sub/Preview Content\"";
@@ -347,6 +352,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -368,6 +374,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"sub/Preview Content\"";
@@ -379,6 +386,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

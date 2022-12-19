@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct SubDataDetail: View {
-    
-    @Binding var subData: subscriptionData
-    @Binding var showSheet: Bool
-    @Binding var deleteActionTrigger: Bool
+    var creatingNew: Bool
+    @Binding var subData: subscriptionData  // Main onscreen data about sub
     @Environment(\.colorScheme) var colorScheme
+    @Binding var subArr: [subscriptionData]
+    //NOTIFICATION MENAGER
     @EnvironmentObject var lnMenager: localNotificationMenager
+    //TRIGGERS
+    @Binding var showSheet: Bool    // Show sheet trigger
+    @Binding var deleteActionTrigger: Bool  // Delete trigger
+    @State var isPresentingConfirm: Bool = false // Delete confirmation trigger
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -28,28 +32,31 @@ struct SubDataDetail: View {
                     .toolbar {
                         ToolbarItem {
                             Button {
-                                lnMenager.removeRequest(withId: subData.subName)
-                                if (subData.notificationEnabled == true)
+                                if (creatingNew)
                                 {
-                                    
+                                    subArr.append(subData)  //Append new entry to array
+                                }
+                                lnMenager.removeRequest(withId: subData.subName)    // Remove notification request
+                                if (subData.notificationEnabled == true)    //If toggle for notification is enabled
+                                {
                                     var dateComponentAdd = DateComponents()
                                     dateComponentAdd.day = subData.reminderDelay
                                     
-                                    let dateComponentsEndOfSub = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: subData.subEndDate)
+                                    let dateComponentsEndOfSub = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: subData.subEndDate)   //Set notification date
                                     
-                                    lnMenager.schedule(localNotification: localNotification(identifier: subData.subName, title: "\(subData.subName) reminder", body: "Your \(subData.subName) subscription is ending soon", dateComponents: dateComponentsEndOfSub, repeats: false))
+                                    lnMenager.schedule(localNotification: localNotification(identifier: subData.subName, title: "\(subData.subName) reminder", body: "Your \(subData.subName) subscription is ending soon", dateComponents: dateComponentsEndOfSub, repeats: false))    //Schedule notifiaction
                                     
-                                    print (dateComponentsEndOfSub)
+                                    print (dateComponentsEndOfSub)  //Debug for notification
                                 }
                                 showSheet = false   //Hide Sheet
                             } label: {
-                                Text("Save")
+                                Text(creatingNew ? "Add" : "Save")  //When adding change text to add
                             }
                         }
                     }
-                    .navigationBarTitle("Edit Subscripiton Details", displayMode: .inline)
+                    .navigationBarTitle(creatingNew ? "Track New Subscription" : "Edit Subscripiton Details", displayMode: .inline)
                 Divider()
-                ImageBox(iconName: subData.subName)
+                ImageBox(iconName: subData.subName) //Image box
                     .padding()
                 List {
                     Section(header: Text("Information")) {
@@ -136,30 +143,39 @@ struct SubDataDetail: View {
                         if subData.notificationEnabled {
                             DatePicker("Time of notification", selection: $subData.subEndDate, displayedComponents: [.hourAndMinute])
                                 .datePickerStyle(.compact)
-                            Picker(selection: .constant(1), label: Text("Remind me")) {
-                                Text("Same day").tag(1)
-                                Text("Day before").tag(2)
-                                Text("2 days before").tag(3)
+                            Picker(selection: $subData.reminderDelay, label: Text("Remind me")) {
+                                Text("Same day").tag(0)
+                                Text("Day before").tag(1)
+                                Text("2 days before").tag(2)
                                 Text("3 days before").tag(3)
-                                Text("Week before").tag(3)
+                                Text("Week before").tag(4)
                             }
                             .pickerStyle(.automatic)
                         }
                     }
-                    Section
-                    {
-                        Button {
-                            lnMenager.removeRequest(withId: subData.subName)    //Delete notification if exists
-                            showSheet = false
-                            deleteActionTrigger = true
-                            subData.flagedToDelete = true
-                        } label: {
-                            HStack
-                            {
-                                Spacer()
-                                Text("Delete")
-                                    .foregroundColor(.red)
-                                Spacer()
+                    if (!creatingNew) { //If creating new sub entry disable delate button
+                        Section
+                        {
+                            Button {
+                                isPresentingConfirm.toggle()
+                            } label: {
+                                HStack
+                                {
+                                    Spacer()
+                                    Text("Delete")
+                                        .foregroundColor(.red)
+                                    Spacer()
+                                }
+                            }
+                            .confirmationDialog("Are you sure you want to delete subscription?", isPresented: $isPresentingConfirm, titleVisibility: .visible) {
+                                Button(role: .destructive) {
+                                    lnMenager.removeRequest(withId: subData.subName)
+                                    showSheet = false
+                                    deleteActionTrigger = true
+                                    subData.flagedToDelete = true
+                                } label: {
+                                    Text("Delete")
+                                }
                             }
                         }
                     }
@@ -175,9 +191,11 @@ struct SubDataDetail_Previews: PreviewProvider {
     @State static var subDataPreview: subscriptionData = subscriptionData(subName: "Netflix", subPirce: 20.3, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true, subCategory: "TV", notificationEnabled: true, reminderDelay: 0)
     @State static var showSheet: Bool = true
     @State static var delActionTrig: Bool = false
+    @State static var createNew: Bool = false
+    @State static var arrrr: [subscriptionData] = [subscriptionData(subName: "Netflix", subPirce: 20.3, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true, subCategory: "TV", notificationEnabled: true, reminderDelay: 0)]
     
     static var previews: some View {
-        SubDataDetail(subData: $subDataPreview, showSheet: $showSheet, deleteActionTrigger: $delActionTrig)
+        SubDataDetail(creatingNew: true, subData: $subDataPreview, subArr: $arrrr, showSheet: $showSheet, deleteActionTrigger: $delActionTrig)
             .environmentObject(localNotificationMenager())
     }
 }

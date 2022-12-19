@@ -8,19 +8,36 @@
 import SwiftUI
 
 struct ImageBox: View {
+    internal init(iconName: String, size: CGFloat, radius: CGFloat) {
+        self.iconName = iconName
+        self.size = size
+        self.radius = radius
+    }
+    internal init(iconName: String, size: CGFloat) {
+        self.iconName = iconName
+        self.size = size
+        self.radius = 20
+    }
+    internal init(iconName: String) {
+        self.iconName = iconName
+        self.size = 125
+        self.radius = 20
+    }
     
     @State var iconName: String
+    @State var size: CGFloat
+    @State var radius: CGFloat
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 20)
+        RoundedRectangle(cornerRadius: radius)
             .stroke(style: StrokeStyle(lineWidth: 4, dash: [8, 4]))
             .foregroundColor(.gray)
-            .frame(width: 125, height: 125)
+            .frame(width: size, height: size)
             .overlay {
                 Image(iconName + "_Icon")
                     .resizable()
-                    .cornerRadius(20)
-                    .frame(width: 130, height: 130)
+                    .cornerRadius(radius)
+                    .frame(width: size + 5, height: size + 5)
             }
             .background {
                 RoundedRectangle(cornerRadius: 20)
@@ -31,6 +48,6 @@ struct ImageBox: View {
 
 struct ImageBox_Previews: PreviewProvider {
     static var previews: some View {
-        ImageBox(iconName: "Netflix")
+        ImageBox(iconName: "Spotify")
     }
 }

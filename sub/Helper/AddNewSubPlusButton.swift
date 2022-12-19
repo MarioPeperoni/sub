@@ -8,21 +8,30 @@
 import SwiftUI
 
 struct AddNewSubPlusButton: View {
+    
+    @State var showSheet: Bool = false
+    @State var subData: subscriptionData = subscriptionData(subName: "", subPirce: 0.00, subEndDate: Date(), subActive: true, subCategory: "Other", notificationEnabled: false, reminderDelay: 0)
+    @Binding var subscriptionArr: [subscriptionData]
+    
     var body: some View {
-        Circle()
-            .frame(width: 50)
-            .foregroundColor(.accentColor)
-            .overlay {
-                Image(systemName: "plus")
-                    .foregroundColor(Color("BoxColor"))
-                    .imageScale(.large)
-                    .fontWeight(.bold)
-            }
-    }
-}
-
-struct AddNewSubPlusButton_Previews: PreviewProvider {
-    static var previews: some View {
-        AddNewSubPlusButton()
+        Button {
+            subData = subscriptionData(subName: "", subPirce: 0.00, subEndDate: Date(), subActive: true, subCategory: "Other", notificationEnabled: false, reminderDelay: 0)
+            showSheet.toggle()
+        } label: {
+            Circle()
+                .frame(width: 50)
+                .foregroundColor(.accentColor)
+                .overlay {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color("BoxColor"))
+                        .imageScale(.large)
+                        .fontWeight(.bold)
+                }
+        }
+        .sheet(isPresented: $showSheet) {
+            SubDataDetail(creatingNew: true, subData: $subData, subArr: $subscriptionArr, showSheet: $showSheet, deleteActionTrigger: .constant(false))
+                .presentationDetents([.large])
+                .environmentObject(localNotificationMenager())
+        }
     }
 }

@@ -17,7 +17,8 @@ struct SubscriptionRow: View {
     }()
     
     @Binding var subData: subscriptionData
-    @Binding var delateActionTriggered: Bool
+    @Binding var delateActionTrigger: Bool
+    @Binding var subArr: [subscriptionData]
     
     @State public var showSheet: Bool = false
     
@@ -31,6 +32,7 @@ struct SubscriptionRow: View {
                 .overlay(alignment: .topLeading) {
                     HStack
                     {
+                        //ImageBox(iconName: subData.subName, size: 40)
                         Image("\(subData.subName)_Icon")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -95,7 +97,7 @@ struct SubscriptionRow: View {
                 .padding()
         }
         .sheet(isPresented: $showSheet) {
-            SubDataDetail(subData: $subData, showSheet: $showSheet, deleteActionTrigger: $delateActionTriggered)
+            SubDataDetail(creatingNew: false, subData: $subData, subArr: $subArr, showSheet: $showSheet, deleteActionTrigger: $delateActionTrigger)
                 .presentationDetents([.large])
                 .environmentObject(localNotificationMenager())
         }
@@ -105,9 +107,11 @@ struct SubscriptionRow: View {
 struct SubscriptionRow_Previews: PreviewProvider {
     
     @State static var subDataPreview: subscriptionData = subscriptionData(subName: "Netflix", subPirce: 43.00, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true, subCategory: "TV", notificationEnabled: false, reminderDelay: 0)
-    @State static var delateActionTriggered:Bool = true
+    @State static var delateActionTrigger : Bool = true
+    @State static var createNewTrigger : Bool = true
+    @State static var arrrr: [subscriptionData] = [subscriptionData(subName: "Netflix", subPirce: 20.3, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true, subCategory: "TV", notificationEnabled: true, reminderDelay: 0)]
     
     static var previews: some View {
-        SubscriptionRow(subData: $subDataPreview, delateActionTriggered: $delateActionTriggered)
+        SubscriptionRow(subData: $subDataPreview, delateActionTrigger: $delateActionTrigger, subArr: $arrrr)
     }
 }
