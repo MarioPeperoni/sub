@@ -39,12 +39,17 @@ struct SubDataDetail: View {
                                 lnMenager.removeRequest(withId: subData.subName)    // Remove notification request
                                 if (subData.notificationEnabled == true)    //If toggle for notification is enabled
                                 {
-                                    var dateComponentAdd = DateComponents()
-                                    dateComponentAdd.day = subData.reminderDelay
+                                    var dateComponentsEndOfSub: DateComponents  //Seting var
                                     
-                                    let dateComponentsEndOfSub = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: subData.subEndDate)   //Set notification date
+                                    if (subData.monthly) {
+                                        dateComponentsEndOfSub = Calendar.current.dateComponents([.day, .hour, .minute], from:                                     Calendar.current.date(byAdding: .day, value: subData.reminderDelay, to: subData.subEndDate)!)   //Set notification date for monthly
+                                    }
+                                    else
+                                    {
+                                        dateComponentsEndOfSub = Calendar.current.dateComponents([.month, .day, .hour, .minute], from:                                     Calendar.current.date(byAdding: .day, value: subData.reminderDelay, to: subData.subEndDate)!)   //Set notification date for yeealy
+                                    }
                                     
-                                    lnMenager.schedule(localNotification: localNotification(identifier: subData.subName, title: "\(subData.subName) reminder", body: "Your \(subData.subName) subscription is ending soon", dateComponents: dateComponentsEndOfSub, repeats: false))    //Schedule notifiaction
+                                    lnMenager.schedule(localNotification: localNotification(identifier: subData.subName, title: "\(subData.subName) reminder", body: "Your \(subData.subName) subscription is ending soon", dateComponents: dateComponentsEndOfSub, repeats: true))    //Schedule notifiaction
                                     
                                     print (dateComponentsEndOfSub)  //Debug for notification
                                 }
@@ -118,40 +123,21 @@ struct SubDataDetail: View {
                         Toggle(isOn: $subData.notificationEnabled) {
                             Text("Enable notfications")
                         }
-                        .onChange(of: subData.notificationEnabled, perform: { newValue in
-                            if (subData.notificationEnabled == true)
-                            {
-                                
-                                var dateComponentAdd = DateComponents()
-                                dateComponentAdd.day = subData.reminderDelay
-                                
-                                let dateComponentsEndOfSub = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: subData.subEndDate)
-                                
-                                lnMenager.schedule(localNotification: localNotification(identifier: subData.subName, title: "\(subData.subName) reminder", body: "Your \(subData.subName) subscription is ending soon", dateComponents: dateComponentsEndOfSub, repeats: false))
-                                
-                                print (dateComponentsEndOfSub)
-                            }
-                            if (subData.notificationEnabled == false)
-                            {
-                                lnMenager.removeRequest(withId: subData.subName)
-                            }
-                            
-                        })
-                        .task {
-                            try? await lnMenager.requestAuth()
+                    }
+                    .task {
+                        try? await lnMenager.requestAuth()
+                    }
+                    if subData.notificationEnabled {
+                        DatePicker("Time of notification", selection: $subData.subEndDate, displayedComponents: [.hourAndMinute])
+                            .datePickerStyle(.compact)
+                        Picker(selection: $subData.reminderDelay, label: Text("Remind me")) {
+                            Text("Same day").tag(0)
+                            Text("Day before").tag(1)
+                            Text("2 days before").tag(2)
+                            Text("3 days before").tag(3)
+                            Text("Week before").tag(4)
                         }
-                        if subData.notificationEnabled {
-                            DatePicker("Time of notification", selection: $subData.subEndDate, displayedComponents: [.hourAndMinute])
-                                .datePickerStyle(.compact)
-                            Picker(selection: $subData.reminderDelay, label: Text("Remind me")) {
-                                Text("Same day").tag(0)
-                                Text("Day before").tag(1)
-                                Text("2 days before").tag(2)
-                                Text("3 days before").tag(3)
-                                Text("Week before").tag(4)
-                            }
-                            .pickerStyle(.automatic)
-                        }
+                        .pickerStyle(.automatic)
                     }
                     if (!creatingNew) { //If creating new sub entry disable delate button
                         Section
@@ -182,6 +168,9 @@ struct SubDataDetail: View {
                 }
                 .listStyle(.automatic)
             }
+            .onTapGesture {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)  //If bg tapped dismiss keyboard
+            }
         }
     }
 }
@@ -195,7 +184,7 @@ struct SubDataDetail_Previews: PreviewProvider {
     @State static var arrrr: [subscriptionData] = [subscriptionData(subName: "Netflix", subPirce: 20.3, subEndDate: Date(timeIntervalSince1970: 1671494400), subActive: true, subCategory: "TV", notificationEnabled: true, reminderDelay: 0)]
     
     static var previews: some View {
-        SubDataDetail(creatingNew: true, subData: $subDataPreview, subArr: $arrrr, showSheet: $showSheet, deleteActionTrigger: $delActionTrig)
+        SubDataDetail(creatingNew: false, subData: $subDataPreview, subArr: $arrrr, showSheet: $showSheet, deleteActionTrigger: $delActionTrig)
             .environmentObject(localNotificationMenager())
     }
 }

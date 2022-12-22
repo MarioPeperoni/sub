@@ -58,6 +58,23 @@ struct ContentView: View {
                 .offset(x: -30, y: -10)
                 .shadow(radius: 20)
         }
+        .onAppear
+        {
+            UIApplication.shared.applicationIconBadgeNumber = 0 //Clear notification badges
+            for index in subscriptions.indices {    //Check if date passed and update it
+                if (subscriptions[index].subEndDate < Date())
+                {
+                    if(subscriptions[index].monthly)    //If monthly renewal
+                    {
+                        subscriptions[index].subEndDate = Calendar.current.date(byAdding: .month, value: 1, to: subscriptions[index].subEndDate)!
+                    }
+                    else    //If yearly renewal
+                    {
+                        subscriptions[index].subEndDate = Calendar.current.date(byAdding: .year, value: 1, to: subscriptions[index].subEndDate)!
+                    }
+                }
+            }
+        }
     }
 }
 
