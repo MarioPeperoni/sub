@@ -42,7 +42,7 @@ struct SubDataDetail: View {
                                     var dateComponentsEndOfSub: DateComponents  //Seting var
                                     
                                     if (subData.monthly) {
-                                        dateComponentsEndOfSub = Calendar.current.dateComponents([.day, .hour, .minute], from:                                     Calendar.current.date(byAdding: .day, value: subData.reminderDelay, to: subData.subEndDate)!)   //Set notification date for monthly
+                                        dateComponentsEndOfSub = Calendar.current.dateComponents([.day, .hour, .minute], from: Calendar.current.date(byAdding: .day, value: -subData.reminderDelay, to: subData.subEndDate)!)   //Set notification date for monthly
                                     }
                                     else
                                     {
@@ -137,7 +137,7 @@ struct SubDataDetail: View {
                             Text("3 days before").tag(3)
                             Text("Week before").tag(4)
                         }
-                        .pickerStyle(.automatic)
+                        .pickerStyle(.menu)
                     }
                     if (!creatingNew) { //If creating new sub entry disable delate button
                         Section
@@ -148,7 +148,7 @@ struct SubDataDetail: View {
                                 HStack
                                 {
                                     Spacer()
-                                    Text("Delete")
+                                    Text("Delete (hold)")
                                         .foregroundColor(.red)
                                     Spacer()
                                 }
@@ -172,6 +172,7 @@ struct SubDataDetail: View {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)  //If bg tapped dismiss keyboard
             }
         }
+        .padding(.bottom)
     }
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6150DFB32950D80A004621B5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6150DFB22950D80A004621B5 /* Launch Screen.storyboard */; };
+		615671DF2958A551005F5D4C /* FamilyPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615671DE2958A551005F5D4C /* FamilyPaymentView.swift */; };
+		615671E12958A5F2005F5D4C /* FamilyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615671E02958A5F2005F5D4C /* FamilyRow.swift */; };
 		615D02F4294DEBAA004135F8 /* SubDataDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D02F3294DEBAA004135F8 /* SubDataDetail.swift */; };
 		615D02F6294DEC1B004135F8 /* ImageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D02F5294DEC1B004135F8 /* ImageBox.swift */; };
 		617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617046FC294BACCF009D2813 /* subscriptionData.swift */; };
@@ -21,11 +23,15 @@
 		61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4E8294B6B4900504634 /* visaCard.swift */; };
 		61A5B4EB294B701A00504634 /* CardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EA294B701A00504634 /* CardBar.swift */; };
 		61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EC294B82E600504634 /* UserIcon.swift */; };
+		61CA34D22955CF1300603B57 /* StatElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA34D12955CF1300603B57 /* StatElement.swift */; };
+		61CA34D42955D5EC00603B57 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA34D32955D5EC00603B57 /* StatView.swift */; };
 		61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6150DFB22950D80A004621B5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		615671DE2958A551005F5D4C /* FamilyPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPaymentView.swift; sourceTree = "<group>"; };
+		615671E02958A5F2005F5D4C /* FamilyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyRow.swift; sourceTree = "<group>"; };
 		615D02F3294DEBAA004135F8 /* SubDataDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDataDetail.swift; sourceTree = "<group>"; };
 		615D02F5294DEC1B004135F8 /* ImageBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBox.swift; sourceTree = "<group>"; };
 		617046FC294BACCF009D2813 /* subscriptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subscriptionData.swift; sourceTree = "<group>"; };
@@ -40,6 +46,8 @@
 		61A5B4E8294B6B4900504634 /* visaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visaCard.swift; sourceTree = "<group>"; };
 		61A5B4EA294B701A00504634 /* CardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBar.swift; sourceTree = "<group>"; };
 		61A5B4EC294B82E600504634 /* UserIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcon.swift; sourceTree = "<group>"; };
+		61CA34D12955CF1300603B57 /* StatElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatElement.swift; sourceTree = "<group>"; };
+		61CA34D32955D5EC00603B57 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubPlusButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +62,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		615671E22958AAFC005F5D4C /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				61A5B4EA294B701A00504634 /* CardBar.swift */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		615671E32958AB55005F5D4C /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				61A43F56294B884900067732 /* SubscriptionRow.swift */,
+				615D02F3294DEBAA004135F8 /* SubDataDetail.swift */,
+				61CA34D32955D5EC00603B57 /* StatView.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		615671E42958AB94005F5D4C /* Family Share */ = {
+			isa = PBXGroup;
+			children = (
+				615671DE2958A551005F5D4C /* FamilyPaymentView.swift */,
+				615671E02958A5F2005F5D4C /* FamilyRow.swift */,
+			);
+			path = "Family Share";
+			sourceTree = "<group>";
+		};
 		6180F1B829507571005B8471 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,9 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				61A5B4DC294B65D200504634 /* ContentView.swift */,
-				61A5B4EA294B701A00504634 /* CardBar.swift */,
-				61A43F56294B884900067732 /* SubscriptionRow.swift */,
-				615D02F3294DEBAA004135F8 /* SubDataDetail.swift */,
+				615671E22958AAFC005F5D4C /* Main Screen */,
+				615671E32958AB55005F5D4C /* Subscription */,
+				615671E42958AB94005F5D4C /* Family Share */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +163,7 @@
 				61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */,
 				61A5B4E8294B6B4900504634 /* visaCard.swift */,
 				615D02F5294DEC1B004135F8 /* ImageBox.swift */,
+				61CA34D12955CF1300603B57 /* StatElement.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -207,13 +243,17 @@
 				617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */,
 				615D02F4294DEBAA004135F8 /* SubDataDetail.swift in Sources */,
 				61A5B4DD294B65D200504634 /* ContentView.swift in Sources */,
+				615671E12958A5F2005F5D4C /* FamilyRow.swift in Sources */,
 				6180F1B729507569005B8471 /* localNotification.swift in Sources */,
 				61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */,
 				6180F1B529507058005B8471 /* localNotificationMenager.swift in Sources */,
 				61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */,
+				615671DF2958A551005F5D4C /* FamilyPaymentView.swift in Sources */,
+				61CA34D42955D5EC00603B57 /* StatView.swift in Sources */,
 				61A5B4DB294B65D200504634 /* subApp.swift in Sources */,
 				61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */,
 				61A5B4EB294B701A00504634 /* CardBar.swift in Sources */,
+				61CA34D22955CF1300603B57 /* StatElement.swift in Sources */,
 				61A43F57294B884900067732 /* SubscriptionRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,6 +20,7 @@ struct subscriptionData: Identifiable, Codable, Equatable
         self.reminderDelay = reminderDelay
         self.monthly = true
         self.flagedToDelete = false
+        self.spend = 0
     }
     
     var id = UUID()
@@ -32,9 +33,44 @@ struct subscriptionData: Identifiable, Codable, Equatable
     var reminderDelay: Int
     var monthly: Bool
     var flagedToDelete: Bool
+    var spend: Double
+}
+
+struct familyData: Identifiable, Codable, Equatable
+{
+    var id = UUID()
+    var personName: String
+    var hasAvatar: Bool
+    var pricePaying: Float
 }
 
 struct subscriptionList
+{
+    static var list: [subscriptionData] = [
+        subscriptionData(subName: "Netflix",
+                         subPirce: 43.00,
+                         subEndDate: Date(timeIntervalSince1970: 1671494400),
+                         subActive: true,
+                         subCategory: "TV",
+                         notificationEnabled: false,
+                         reminderDelay: 0),
+        subscriptionData(subName: "Spotify",
+                         subPirce: 19.99,
+                         subEndDate: Date(timeIntervalSince1970: 1673423454),
+                         subActive: true,
+                         subCategory: "Music",
+                         notificationEnabled: false,
+                         reminderDelay: 0),
+        subscriptionData(subName: "iCloud",
+                         subPirce: 12.99,
+                         subEndDate: Date(timeIntervalSince1970: 1671423774),
+                         subActive: false,
+                         subCategory: "Other",
+                         notificationEnabled: false,
+                         reminderDelay: 0) ]
+}
+
+struct allDefinedSubscriptionsList
 {
     static var list: [subscriptionData] = [
         subscriptionData(subName: "Netflix",
@@ -127,9 +163,17 @@ struct subscriptionList
                          subActive: true,
                          subCategory: "Games",
                          notificationEnabled: false,
+                         reminderDelay: 0),
+        subscriptionData(subName: "iCloud",
+                         subPirce: 10.99,
+                         subEndDate: Date(timeIntervalSince1970: 1671423774),
+                         subActive: true,
+                         subCategory: "Games",
+                         notificationEnabled: false,
                          reminderDelay: 0)
     ]
 }
+
 func encode(subsciptionDataPassed: [subscriptionData])
 {
     UserDefaults.standard.set(try? PropertyListEncoder().encode(subsciptionDataPassed), forKey: "subscriptionList")

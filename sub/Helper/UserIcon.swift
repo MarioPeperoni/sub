@@ -8,21 +8,31 @@
 import SwiftUI
 
 struct UserIcon: View {
+    
+    @State var showSheet: Bool = false
+    
     var body: some View {
-        Circle()
-            .frame(width: 50)
-            .foregroundColor(.accentColor)
-            .overlay {
-                Circle()
-                    .frame(width: 40)
-                    .foregroundColor(Color("BoxColor"))
-                    .overlay
-                {
-                    Image(systemName: "person.fill")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
+        Button {
+            showSheet = true
+        } label: {
+            Circle()
+                .frame(width: 50)
+                .foregroundColor(.accentColor)
+                .overlay {
+                    Circle()
+                        .frame(width: 40)
+                        .foregroundColor(Color("BoxColor"))
+                        .overlay
+                    {
+                        Image(systemName: "person.fill")
+                            .imageScale(.large)
+                            .foregroundColor(.accentColor)
+                    }
                 }
-            }
+        }
+        .sheet(isPresented: $showSheet) {
+            Text("Settings")
+        }
     }
 }
 

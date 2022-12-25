@@ -72,6 +72,7 @@ struct ContentView: View {
                     {
                         subscriptions[index].subEndDate = Calendar.current.date(byAdding: .year, value: 1, to: subscriptions[index].subEndDate)!
                     }
+                    subscriptions[index].spend += subscriptions[index].subPirce
                 }
             }
         }

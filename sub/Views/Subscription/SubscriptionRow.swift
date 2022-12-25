@@ -20,11 +20,13 @@ struct SubscriptionRow: View {
     @Binding var delateActionTrigger: Bool
     @Binding var subArr: [subscriptionData]
     
-    @State public var showSheet: Bool = false
+    @State public var showSheetEdit: Bool = false
+    @State public var showSheetStats: Bool = false
     
     var body: some View {
         Button {
-            showSheet = true
+            //showSheetEdit = true
+            showSheetStats = true
         }label: {
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: .infinity, height: 100)
@@ -96,11 +98,16 @@ struct SubscriptionRow: View {
                 .shadow(radius: 2)
                 .padding()
         }
-        .sheet(isPresented: $showSheet) {
-            SubDataDetail(creatingNew: false, subData: $subData, subArr: $subArr, showSheet: $showSheet, deleteActionTrigger: $delateActionTrigger)
+        .sheet(isPresented: $showSheetEdit) {
+            SubDataDetail(creatingNew: false, subData: $subData, subArr: $subArr, showSheet: $showSheetEdit, deleteActionTrigger: $delateActionTrigger)
                 .presentationDetents([.large])
                 .environmentObject(localNotificationMenager())
         }
+        .sheet(isPresented: $showSheetStats) {
+            StatView(subData: $subData, showStatSheet: $showSheetStats, showEditSheet: $showSheetEdit)
+                .presentationDetents([.medium, .large])
+        }
+        .ignoresSafeArea()
     }
 }
 
