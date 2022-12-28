@@ -58,7 +58,7 @@ struct ContentView: View {
                 .offset(x: -30, y: -10)
                 .shadow(radius: 20)
         }
-        .onAppear
+        .onAppear   //Run if app opens
         {
             UIApplication.shared.applicationIconBadgeNumber = 0 //Clear notification badges
             for index in subscriptions.indices {    //Check if date passed and update it
@@ -72,16 +72,16 @@ struct ContentView: View {
                     {
                         subscriptions[index].subEndDate = Calendar.current.date(byAdding: .year, value: 1, to: subscriptions[index].subEndDate)!
                     }
-                    subscriptions[index].spend += subscriptions[index].subPirce
+                    subscriptions[index].familyDataList[0].pricePaying += subscriptions[index].subPirce
                 }
             }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+/*struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(localNotificationMenager())
     }
-}
+}*/

@@ -33,6 +33,6 @@ struct FamilyRow: View {
 
 struct FamilyRow_Previews: PreviewProvider {
     static var previews: some View {
-        FamilyRow(familyData: familyData(personName: "Mariusz Pudzianowski", hasAvatar: false, pricePaying: 20.0))
+        FamilyRow(familyData: familyData(personName: "Me", hasAvatar: false, pricePaying: 20.0, fixedPrice: false))
     }
 }

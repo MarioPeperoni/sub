@@ -25,6 +25,7 @@
 		61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EC294B82E600504634 /* UserIcon.swift */; };
 		61CA34D22955CF1300603B57 /* StatElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA34D12955CF1300603B57 /* StatElement.swift */; };
 		61CA34D42955D5EC00603B57 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA34D32955D5EC00603B57 /* StatView.swift */; };
+		61CA4894295CC23900A04B4D /* BigGradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA4893295CC23900A04B4D /* BigGradientButton.swift */; };
 		61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		61A5B4EC294B82E600504634 /* UserIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcon.swift; sourceTree = "<group>"; };
 		61CA34D12955CF1300603B57 /* StatElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatElement.swift; sourceTree = "<group>"; };
 		61CA34D32955D5EC00603B57 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
+		61CA4893295CC23900A04B4D /* BigGradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigGradientButton.swift; sourceTree = "<group>"; };
 		61D76535294B9A8300A14FD3 /* AddNewSubPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubPlusButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +166,7 @@
 				61A5B4E8294B6B4900504634 /* visaCard.swift */,
 				615D02F5294DEC1B004135F8 /* ImageBox.swift */,
 				61CA34D12955CF1300603B57 /* StatElement.swift */,
+				61CA4893295CC23900A04B4D /* BigGradientButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				6180F1B729507569005B8471 /* localNotification.swift in Sources */,
 				61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */,
 				6180F1B529507058005B8471 /* localNotificationMenager.swift in Sources */,
+				61CA4894295CC23900A04B4D /* BigGradientButton.swift in Sources */,
 				61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */,
 				615671DF2958A551005F5D4C /* FamilyPaymentView.swift in Sources */,
 				61CA34D42955D5EC00603B57 /* StatView.swift in Sources */,

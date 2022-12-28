@@ -21,6 +21,8 @@ struct subscriptionData: Identifiable, Codable, Equatable
         self.monthly = true
         self.flagedToDelete = false
         self.spend = 0
+        self.familyShareEnable = false
+        self.familyDataList = [familyData(personName: "Me", hasAvatar: false, pricePaying: self.subPirce, fixedPrice: false)]
     }
     
     var id = UUID()
@@ -34,6 +36,8 @@ struct subscriptionData: Identifiable, Codable, Equatable
     var monthly: Bool
     var flagedToDelete: Bool
     var spend: Double
+    var familyShareEnable: Bool
+    var familyDataList: [familyData]
 }
 
 struct familyData: Identifiable, Codable, Equatable
@@ -41,7 +45,8 @@ struct familyData: Identifiable, Codable, Equatable
     var id = UUID()
     var personName: String
     var hasAvatar: Bool
-    var pricePaying: Float
+    var pricePaying: Double
+    var fixedPrice: Bool
 }
 
 struct subscriptionList
@@ -49,21 +54,21 @@ struct subscriptionList
     static var list: [subscriptionData] = [
         subscriptionData(subName: "Netflix",
                          subPirce: 43.00,
-                         subEndDate: Date(timeIntervalSince1970: 1671494400),
+                         subEndDate: Date().advanced(by: TimeInterval(2592000)),
                          subActive: true,
                          subCategory: "TV",
                          notificationEnabled: false,
                          reminderDelay: 0),
         subscriptionData(subName: "Spotify",
                          subPirce: 19.99,
-                         subEndDate: Date(timeIntervalSince1970: 1673423454),
+                         subEndDate: Date().advanced(by: TimeInterval(424200)),
                          subActive: true,
                          subCategory: "Music",
                          notificationEnabled: false,
                          reminderDelay: 0),
         subscriptionData(subName: "iCloud",
                          subPirce: 12.99,
-                         subEndDate: Date(timeIntervalSince1970: 1671423774),
+                         subEndDate: Date().advanced(by: TimeInterval(43200)),
                          subActive: false,
                          subCategory: "Other",
                          notificationEnabled: false,
