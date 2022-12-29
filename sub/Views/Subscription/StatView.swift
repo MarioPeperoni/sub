@@ -14,6 +14,11 @@ struct StatView: View {
     @Binding var showStatSheet: Bool
     @Binding var showEditSheet: Bool
     
+    //Alert variables
+    @State var showAlert: Bool = false
+    @State var newNameTemp: String = ""
+    @State var newPriceTemp: String = ""
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -51,7 +56,7 @@ struct StatView: View {
                     BigGradientButton(gradientColor1: .accentColor, gradientColor2: .purple, textShowing: "Setup Your Virtual Card", imageName: "creditcard.fill", stroke: false)
                         .padding(.bottom, 5)
                     
-                    if(subData.familyDataList.count != 0)
+                    if(subData.familyDataList.count != 1)
                     {
                         FamilyPaymentView(familyDataArray: $subData.familyDataList, subPrice: subData.subPirce)
                             .overlay
@@ -64,16 +69,46 @@ struct StatView: View {
                     else
                     {
                         Button {
-                            
+                            showAlert = true
                         } label: {
                             BigGradientButton(gradientColor1: .accentColor, gradientColor2: .green, textShowing: "Enable Family Share!", imageName: "person.line.dotted.person.fill", stroke: false)
                                 .padding(.bottom, 5)
+                        }
+                        .alert("Family Share", isPresented: $showAlert, actions: {
+                            
+                            TextField("Name", text: $newNameTemp)
+                                .textContentType(.name)
+                                .autocorrectionDisabled()
+                            Button("Add", action: {
+                                subData.familyDataList.append(familyData(personName: newNameTemp, hasAvatar: false, pricePaying: Double(newPriceTemp) ?? 0, fixedPrice: false))
+                                splitprices()
+                                clearTempVars()
+                            })
+                            Button("Cancel", role: .cancel, action: {
+                                clearTempVars()
+                            })
+                            
+                        }) {
+                            Text("Add new family member")
                         }
                     }
                     Spacer()
                 }
                 .padding()
             }
+        }
+    }
+    func clearTempVars()
+    {
+        newNameTemp = ""
+        newPriceTemp = ""
+    }
+    func splitprices()
+    {
+        let priceForSubSplitted: Double = subData.subPirce / Double(subData.familyDataList.count)
+        for index in subData.familyDataList.indices
+        {
+            subData.familyDataList[index].pricePaying = priceForSubSplitted
         }
     }
 }

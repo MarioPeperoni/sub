@@ -11,8 +11,6 @@ struct FamilyPaymentView: View {
     
     @Binding var familyDataArray: [familyData]
     
-    
-    
     //Alert variables
     @State var showing: Bool = false
     @State var newNameTemp: String = ""
