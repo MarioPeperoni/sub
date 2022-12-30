@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613ED543295F003E0010DD9B /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 613ED542295F003E0010DD9B /* ColorKit */; };
+		613ED546295F09C80010DD9B /* CardCreationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613ED545295F09C80010DD9B /* CardCreationScreen.swift */; };
 		6150DFB32950D80A004621B5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6150DFB22950D80A004621B5 /* Launch Screen.storyboard */; };
 		615671DF2958A551005F5D4C /* FamilyPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615671DE2958A551005F5D4C /* FamilyPaymentView.swift */; };
 		615671E12958A5F2005F5D4C /* FamilyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615671E02958A5F2005F5D4C /* FamilyRow.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		613ED545295F09C80010DD9B /* CardCreationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreationScreen.swift; sourceTree = "<group>"; };
 		6150DFB22950D80A004621B5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		615671DE2958A551005F5D4C /* FamilyPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPaymentView.swift; sourceTree = "<group>"; };
 		615671E02958A5F2005F5D4C /* FamilyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyRow.swift; sourceTree = "<group>"; };
@@ -58,12 +61,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613ED543295F003E0010DD9B /* ColorKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		613ED544295F09AE0010DD9B /* Virtual Card */ = {
+			isa = PBXGroup;
+			children = (
+				613ED545295F09C80010DD9B /* CardCreationScreen.swift */,
+			);
+			path = "Virtual Card";
+			sourceTree = "<group>";
+		};
 		615671E22958AAFC005F5D4C /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 				615671E22958AAFC005F5D4C /* Main Screen */,
 				615671E32958AB55005F5D4C /* Subscription */,
 				615671E42958AB94005F5D4C /* Family Share */,
+				613ED544295F09AE0010DD9B /* Virtual Card */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +200,9 @@
 			dependencies = (
 			);
 			name = sub;
+			packageProductDependencies = (
+				613ED542295F003E0010DD9B /* ColorKit */,
+			);
 			productName = sub;
 			productReference = 61A5B4D7294B65D200504634 /* sub.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +231,9 @@
 				Base,
 			);
 			mainGroup = 61A5B4CE294B65D200504634;
+			packageReferences = (
+				613ED541295F003E0010DD9B /* XCRemoteSwiftPackageReference "ColorKit" */,
+			);
 			productRefGroup = 61A5B4D8294B65D200504634 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,6 +269,7 @@
 				6180F1B729507569005B8471 /* localNotification.swift in Sources */,
 				61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */,
 				6180F1B529507058005B8471 /* localNotificationMenager.swift in Sources */,
+				613ED546295F09C80010DD9B /* CardCreationScreen.swift in Sources */,
 				61CA4894295CC23900A04B4D /* BigGradientButton.swift in Sources */,
 				61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */,
 				615671DF2958A551005F5D4C /* FamilyPaymentView.swift in Sources */,
@@ -469,6 +489,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		613ED541295F003E0010DD9B /* XCRemoteSwiftPackageReference "ColorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Boris-Em/ColorKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		613ED542295F003E0010DD9B /* ColorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 613ED541295F003E0010DD9B /* XCRemoteSwiftPackageReference "ColorKit" */;
+			productName = ColorKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 61A5B4CF294B65D200504634 /* Project object */;
 }

@@ -48,14 +48,17 @@ struct StatView: View {
                 .padding(20)
                 Text("Days to next payment: \(calculateDays(subscriptionDate: subData.subEndDate)) days")
                     .font(.callout)
-                //.padding(.top)
                 
                 ProgressView(value: 1 - Double(calculateDays(subscriptionDate: subData.subEndDate)) / (subData.monthly ? 30.0 : 365.0))
                     .padding(.horizontal)
                 VStack{
-                    BigGradientButton(gradientColor1: .accentColor, gradientColor2: .purple, textShowing: "Setup Your Virtual Card", imageName: "creditcard.fill", stroke: false)
-                        .padding(.bottom, 5)
-                    
+                    NavigationLink {
+                        CardCreationScreen(subData: $subData)
+                            .navigationTitle("Setup Virtual Card")
+                    } label: {
+                        BigGradientButton(gradientColor1: .accentColor, gradientColor2: .purple, textShowing: "Setup Your Virtual Card", imageName: "creditcard.fill", stroke: false)
+                            .padding(.bottom, 5)
+                    }
                     if(subData.familyDataList.count != 1)
                     {
                         FamilyPaymentView(familyDataArray: $subData.familyDataList, subPrice: subData.subPirce)

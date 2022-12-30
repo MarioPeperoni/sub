@@ -23,6 +23,8 @@ struct subscriptionData: Identifiable, Codable, Equatable
         self.spend = 0
         self.familyShareEnable = false
         self.familyDataList = [familyData(personName: "Me", hasAvatar: false, pricePaying: self.subPirce, fixedPrice: false)]
+        self.virtualCardCreated = false
+        self.virtualCardData = virtualCard(cardNo: [1234, 5678, 9010, 1112], cardExp: [01, 2001], cardCVV: 123)
     }
     
     var id = UUID()
@@ -38,6 +40,8 @@ struct subscriptionData: Identifiable, Codable, Equatable
     var spend: Double
     var familyShareEnable: Bool
     var familyDataList: [familyData]
+    var virtualCardCreated: Bool
+    var virtualCardData: virtualCard
 }
 
 struct familyData: Identifiable, Codable, Equatable
@@ -47,6 +51,14 @@ struct familyData: Identifiable, Codable, Equatable
     var hasAvatar: Bool
     var pricePaying: Double
     var fixedPrice: Bool
+}
+
+struct virtualCard: Identifiable, Codable, Equatable
+{
+    var id = UUID()
+    var cardNo: [Int]
+    var cardExp: [Int]
+    var cardCVV: Int
 }
 
 struct subscriptionList

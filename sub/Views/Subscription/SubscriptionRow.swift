@@ -105,8 +105,8 @@ struct SubscriptionRow: View {
         }
         .sheet(isPresented: $showSheetStats) {
             StatView(subData: $subData, showStatSheet: $showSheetStats, showEditSheet: $showSheetEdit)
-                .presentationDetents(subData.familyDataList.count == 1 ? [.medium, .large] :
-                                        [.fraction(0.5 + (0.1 * CGFloat(subData.familyDataList.count))),    //0.1 for eatch new person
+                .presentationDetents(subData.familyDataList.count == 1 ? [/*.medium,*/ .large] :
+                                        [/*.fraction(0.5 + (0.1 * CGFloat(subData.familyDataList.count))),    //0.1 for eatch new person*/
                                          .large])
         }
         .ignoresSafeArea()
