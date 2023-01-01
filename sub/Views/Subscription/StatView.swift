@@ -54,7 +54,8 @@ struct StatView: View {
                 VStack{
                     NavigationLink {
                         CardCreationScreen(subData: $subData)
-                            .navigationTitle("Setup Virtual Card")
+                            .navigationTitle("My Virtual Card")
+                            .navigationBarTitleDisplayMode(.inline)
                     } label: {
                         BigGradientButton(gradientColor1: .accentColor, gradientColor2: .purple, textShowing: "Setup Your Virtual Card", imageName: "creditcard.fill", stroke: false)
                             .padding(.bottom, 5)

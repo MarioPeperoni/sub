@@ -24,7 +24,7 @@ struct subscriptionData: Identifiable, Codable, Equatable
         self.familyShareEnable = false
         self.familyDataList = [familyData(personName: "Me", hasAvatar: false, pricePaying: self.subPirce, fixedPrice: false)]
         self.virtualCardCreated = false
-        self.virtualCardData = virtualCard(cardNo: [1234, 5678, 9010, 1112], cardExp: [01, 2001], cardCVV: 123)
+        self.virtualCardData = virtualCard(cardNo: [1234, 5678, 9010, 1112], cardExp: [01, 2001], cardCVV: 123, oneTimeRecharge: false, cardConnected: false)
     }
     
     var id = UUID()
@@ -59,6 +59,9 @@ struct virtualCard: Identifiable, Codable, Equatable
     var cardNo: [Int]
     var cardExp: [Int]
     var cardCVV: Int
+    
+    var oneTimeRecharge: Bool
+    var cardConnected: Bool
 }
 
 struct subscriptionList

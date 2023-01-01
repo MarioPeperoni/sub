@@ -17,6 +17,10 @@
 		617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617046FC294BACCF009D2813 /* subscriptionData.swift */; };
 		6180F1B529507058005B8471 /* localNotificationMenager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180F1B429507058005B8471 /* localNotificationMenager.swift */; };
 		6180F1B729507569005B8471 /* localNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180F1B629507569005B8471 /* localNotification.swift */; };
+		6185A66D2961EA9C002EA744 /* RechargingMethodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6185A66C2961EA9C002EA744 /* RechargingMethodOption.swift */; };
+		6185A66F2961F284002EA744 /* OneTimeRechargeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6185A66E2961F284002EA744 /* OneTimeRechargeOptions.swift */; };
+		6185A6712961F298002EA744 /* CardConnectionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6185A6702961F298002EA744 /* CardConnectionOptions.swift */; };
+		6185A673296205DB002EA744 /* HowToCardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6185A672296205DB002EA744 /* HowToCardScreen.swift */; };
 		61A43F57294B884900067732 /* SubscriptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A43F56294B884900067732 /* SubscriptionRow.swift */; };
 		61A5B4DB294B65D200504634 /* subApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4DA294B65D200504634 /* subApp.swift */; };
 		61A5B4DD294B65D200504634 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4DC294B65D200504634 /* ContentView.swift */; };
@@ -41,6 +45,10 @@
 		617046FC294BACCF009D2813 /* subscriptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subscriptionData.swift; sourceTree = "<group>"; };
 		6180F1B429507058005B8471 /* localNotificationMenager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localNotificationMenager.swift; sourceTree = "<group>"; };
 		6180F1B629507569005B8471 /* localNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localNotification.swift; sourceTree = "<group>"; };
+		6185A66C2961EA9C002EA744 /* RechargingMethodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RechargingMethodOption.swift; sourceTree = "<group>"; };
+		6185A66E2961F284002EA744 /* OneTimeRechargeOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeRechargeOptions.swift; sourceTree = "<group>"; };
+		6185A6702961F298002EA744 /* CardConnectionOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardConnectionOptions.swift; sourceTree = "<group>"; };
+		6185A672296205DB002EA744 /* HowToCardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToCardScreen.swift; sourceTree = "<group>"; };
 		61A43F56294B884900067732 /* SubscriptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionRow.swift; sourceTree = "<group>"; };
 		61A5B4D7294B65D200504634 /* sub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A5B4DA294B65D200504634 /* subApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subApp.swift; sourceTree = "<group>"; };
@@ -72,6 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				613ED545295F09C80010DD9B /* CardCreationScreen.swift */,
+				6185A66E2961F284002EA744 /* OneTimeRechargeOptions.swift */,
+				6185A6702961F298002EA744 /* CardConnectionOptions.swift */,
+				6185A672296205DB002EA744 /* HowToCardScreen.swift */,
 			);
 			path = "Virtual Card";
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				61A5B4DC294B65D200504634 /* ContentView.swift */,
+				61EE9D72294D12740036E51C /* Helper */,
 				615671E22958AAFC005F5D4C /* Main Screen */,
 				615671E32958AB55005F5D4C /* Subscription */,
 				615671E42958AB94005F5D4C /* Family Share */,
@@ -152,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				6180F1B829507571005B8471 /* Notification */,
-				61EE9D72294D12740036E51C /* Helper */,
 				61A43F55294B878600067732 /* Views */,
 				6180F1B929507AC0005B8471 /* Data */,
 				61A5B4DE294B65D300504634 /* Assets.xcassets */,
@@ -180,6 +191,7 @@
 				615D02F5294DEC1B004135F8 /* ImageBox.swift */,
 				61CA34D12955CF1300603B57 /* StatElement.swift */,
 				61CA4893295CC23900A04B4D /* BigGradientButton.swift */,
+				6185A66C2961EA9C002EA744 /* RechargingMethodOption.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -261,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6185A66D2961EA9C002EA744 /* RechargingMethodOption.swift in Sources */,
 				615D02F6294DEC1B004135F8 /* ImageBox.swift in Sources */,
 				617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */,
 				615D02F4294DEBAA004135F8 /* SubDataDetail.swift in Sources */,
@@ -269,12 +282,15 @@
 				6180F1B729507569005B8471 /* localNotification.swift in Sources */,
 				61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */,
 				6180F1B529507058005B8471 /* localNotificationMenager.swift in Sources */,
+				6185A673296205DB002EA744 /* HowToCardScreen.swift in Sources */,
 				613ED546295F09C80010DD9B /* CardCreationScreen.swift in Sources */,
 				61CA4894295CC23900A04B4D /* BigGradientButton.swift in Sources */,
 				61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */,
 				615671DF2958A551005F5D4C /* FamilyPaymentView.swift in Sources */,
+				6185A66F2961F284002EA744 /* OneTimeRechargeOptions.swift in Sources */,
 				61CA34D42955D5EC00603B57 /* StatView.swift in Sources */,
 				61A5B4DB294B65D200504634 /* subApp.swift in Sources */,
+				6185A6712961F298002EA744 /* CardConnectionOptions.swift in Sources */,
 				61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */,
 				61A5B4EB294B701A00504634 /* CardBar.swift in Sources */,
 				61CA34D22955CF1300603B57 /* StatElement.swift in Sources */,

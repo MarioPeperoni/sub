@@ -16,36 +16,71 @@ struct CardCreationScreen: View {
     var body: some View {
         
         let cardNumberString = String(format: "%04d", subData.virtualCardData.cardNo[0]) + " " + String(format: "%04d", subData.virtualCardData.cardNo[1]) + " " + String(format: "%04d", subData.virtualCardData.cardNo[2])    //Nie wiadmo czemu nie moze byc w jednym co nie wiec tam potem sie dodaje reszta
-        
-            VStack
+        VStack
+        {
+            visaCard(sizeModifier: 3, imageName: subData.subName)
+                .padding(.top, 50)
+            List
             {
-                visaCard(sizeModifier: 3, imageName: subData.subName)
-                    .padding(.top, 50)
-                List
-                {
-                    Section("Your \(subData.subName) card credentials") {
-                        HStack
-                        {
-                            Text("Card Number: ")
-                            Text(cardNumberString + " " + String(format: "%04d", subData.virtualCardData.cardNo[3]))
-                        }
-                        HStack
-                        {
-                            Text("Card Expiry: " + String(format: "%02d", subData.virtualCardData.cardExp[0]) + "/" + String(format: "%04d", subData.virtualCardData.cardExp[1]))
-                                .padding(.trailing)
-                            Divider()
-                            Text("CVV: " + String(format: "%03d", subData.virtualCardData.cardCVV))
-                                .padding(.leading, 15)
-                        }
+                Section("Your \(subData.subName) card credentials") {
+                    HStack
+                    {
+                        Text("Card Number:")
+                        Text(cardNumberString + " " + String(format: "%04d", subData.virtualCardData.cardNo[3]))
+                            .textSelection(.enabled)
+                    }
+                    HStack
+                    {
+                        Text("Card Expiry: ")
+                        Text(String(format: "%02d", subData.virtualCardData.cardExp[0]) + "/" + String(format: "%04d", subData.virtualCardData.cardExp[1]))
+                            .padding(.trailing)
+                            .textSelection(.enabled)
+                        Divider()
+                        Text("CVV: ")
+                        Text(String(format: "%03d", subData.virtualCardData.cardCVV))
+                            .padding(.leading, 2)
+                            .textSelection(.enabled)
                     }
                 }
-                .scrollDisabled(true)
-                .padding(.top)
-                Spacer()
+                Section("Recharging method")
+                {
+                    NavigationLink {
+                        OneTimeRechargeOptions()
+                            .task {
+                                subData.virtualCardData.cardConnected = false
+                                subData.virtualCardData.oneTimeRecharge = true
+                            }
+                    } label: {
+                            RechargingMethodOption(textShown: " One-time recharge", showCheckmark: subData.virtualCardData.oneTimeRecharge, optionIcon: "dollarsign.arrow.circlepath")
+                                .padding(10)
+                        }
+                    NavigationLink {
+                        CardConnectionOptions()
+                            .task {
+                                subData.virtualCardData.cardConnected = true
+                                subData.virtualCardData.oneTimeRecharge = false
+                            }
+                    } label: {
+                        RechargingMethodOption(textShown: " Connect my card", showCheckmark: subData.virtualCardData.cardConnected, optionIcon: "creditcard.and.123")
+                            .padding(10)
+                    }
+                }
+                Section()
+                {
+                    NavigationLink {
+                        HowToCardScreen()
+                    } label: {
+                        Text("How to use my virtual card?")
+                    }
+                }
             }
-            .task {
-                generateNewCard()
-            }
+            .scrollDisabled(true)
+            .padding(.top)
+            Spacer()
+        }
+        .task {
+            generateNewCard()
+        }
     }
     
     func generateNewCard()
