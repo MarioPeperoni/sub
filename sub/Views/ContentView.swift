@@ -14,6 +14,7 @@ struct ContentView: View {
     @State public var subscriptions: [subscriptionData] = decode()
     //ACTION TRIGGERS
     @State var delateActionTriggered: Bool = false
+    @State var showStatSheet: Bool = false
     
     var body: some View {
         VStack() {
@@ -29,7 +30,15 @@ struct ContentView: View {
                     .padding()
             }
             ScrollView() {
-                CardBar()
+                Button {
+                    showStatSheet = true
+                } label: {
+                    CardBar()
+                }
+                .sheet(isPresented: $showStatSheet) {
+                    mainStatView(subData: subscriptions)
+                        .presentationDetents([.fraction(0.75), .large])
+                }
                 Divider()
                 VStack(spacing: -20) {
                     ForEach(subscriptions.indices, id: \.self) { sub in
@@ -78,10 +87,3 @@ struct ContentView: View {
         }
     }
 }
-
-/*struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environmentObject(localNotificationMenager())
-    }
-}*/

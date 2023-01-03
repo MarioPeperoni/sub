@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613A8B2729637F7200F55884 /* chartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A8B2629637F7200F55884 /* chartView.swift */; };
 		613ED543295F003E0010DD9B /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 613ED542295F003E0010DD9B /* ColorKit */; };
 		613ED546295F09C80010DD9B /* CardCreationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613ED545295F09C80010DD9B /* CardCreationScreen.swift */; };
 		6150DFB32950D80A004621B5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6150DFB22950D80A004621B5 /* Launch Screen.storyboard */; };
@@ -29,6 +30,9 @@
 		61A5B4E9294B6B4900504634 /* visaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4E8294B6B4900504634 /* visaCard.swift */; };
 		61A5B4EB294B701A00504634 /* CardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EA294B701A00504634 /* CardBar.swift */; };
 		61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A5B4EC294B82E600504634 /* UserIcon.swift */; };
+		61AEEFAF29638A4200F048D4 /* mainStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AEEFAE29638A4200F048D4 /* mainStatView.swift */; };
+		61AEEFB229638BE000F048D4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 61AEEFB129638BE000F048D4 /* SwiftUICharts */; };
+		61AEEFB929639A6000F048D4 /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = 61AEEFB829639A6000F048D4 /* SwiftPieChart */; };
 		61CA34D22955CF1300603B57 /* StatElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA34D12955CF1300603B57 /* StatElement.swift */; };
 		61CA34D42955D5EC00603B57 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA34D32955D5EC00603B57 /* StatView.swift */; };
 		61CA4894295CC23900A04B4D /* BigGradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA4893295CC23900A04B4D /* BigGradientButton.swift */; };
@@ -36,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		613A8B2629637F7200F55884 /* chartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chartView.swift; sourceTree = "<group>"; };
 		613ED545295F09C80010DD9B /* CardCreationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreationScreen.swift; sourceTree = "<group>"; };
 		6150DFB22950D80A004621B5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		615671DE2958A551005F5D4C /* FamilyPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPaymentView.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 		61A5B4E8294B6B4900504634 /* visaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visaCard.swift; sourceTree = "<group>"; };
 		61A5B4EA294B701A00504634 /* CardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBar.swift; sourceTree = "<group>"; };
 		61A5B4EC294B82E600504634 /* UserIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcon.swift; sourceTree = "<group>"; };
+		61AEEFAE29638A4200F048D4 /* mainStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainStatView.swift; sourceTree = "<group>"; };
 		61CA34D12955CF1300603B57 /* StatElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatElement.swift; sourceTree = "<group>"; };
 		61CA34D32955D5EC00603B57 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		61CA4893295CC23900A04B4D /* BigGradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigGradientButton.swift; sourceTree = "<group>"; };
@@ -70,6 +76,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				613ED543295F003E0010DD9B /* ColorKit in Frameworks */,
+				61AEEFB229638BE000F048D4 /* SwiftUICharts in Frameworks */,
+				61AEEFB929639A6000F048D4 /* SwiftPieChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,14 +93,6 @@
 				6185A672296205DB002EA744 /* HowToCardScreen.swift */,
 			);
 			path = "Virtual Card";
-			sourceTree = "<group>";
-		};
-		615671E22958AAFC005F5D4C /* Main Screen */ = {
-			isa = PBXGroup;
-			children = (
-				61A5B4EA294B701A00504634 /* CardBar.swift */,
-			);
-			path = "Main Screen";
 			sourceTree = "<group>";
 		};
 		615671E32958AB55005F5D4C /* Subscription */ = {
@@ -136,7 +136,7 @@
 			children = (
 				61A5B4DC294B65D200504634 /* ContentView.swift */,
 				61EE9D72294D12740036E51C /* Helper */,
-				615671E22958AAFC005F5D4C /* Main Screen */,
+				61AEEFAD296389BC00F048D4 /* Statistics */,
 				615671E32958AB55005F5D4C /* Subscription */,
 				615671E42958AB94005F5D4C /* Family Share */,
 				613ED544295F09AE0010DD9B /* Virtual Card */,
@@ -181,6 +181,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		61AEEFAD296389BC00F048D4 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				613A8B2629637F7200F55884 /* chartView.swift */,
+				61AEEFAE29638A4200F048D4 /* mainStatView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		61EE9D72294D12740036E51C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +201,7 @@
 				61CA34D12955CF1300603B57 /* StatElement.swift */,
 				61CA4893295CC23900A04B4D /* BigGradientButton.swift */,
 				6185A66C2961EA9C002EA744 /* RechargingMethodOption.swift */,
+				61A5B4EA294B701A00504634 /* CardBar.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -214,6 +224,8 @@
 			name = sub;
 			packageProductDependencies = (
 				613ED542295F003E0010DD9B /* ColorKit */,
+				61AEEFB129638BE000F048D4 /* SwiftUICharts */,
+				61AEEFB829639A6000F048D4 /* SwiftPieChart */,
 			);
 			productName = sub;
 			productReference = 61A5B4D7294B65D200504634 /* sub.app */;
@@ -245,6 +257,8 @@
 			mainGroup = 61A5B4CE294B65D200504634;
 			packageReferences = (
 				613ED541295F003E0010DD9B /* XCRemoteSwiftPackageReference "ColorKit" */,
+				61AEEFB029638BE000F048D4 /* XCRemoteSwiftPackageReference "ChartView" */,
+				61AEEFB729639A6000F048D4 /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
 			);
 			productRefGroup = 61A5B4D8294B65D200504634 /* Products */;
 			projectDirPath = "";
@@ -278,6 +292,7 @@
 				617046FD294BACCF009D2813 /* subscriptionData.swift in Sources */,
 				615D02F4294DEBAA004135F8 /* SubDataDetail.swift in Sources */,
 				61A5B4DD294B65D200504634 /* ContentView.swift in Sources */,
+				613A8B2729637F7200F55884 /* chartView.swift in Sources */,
 				615671E12958A5F2005F5D4C /* FamilyRow.swift in Sources */,
 				6180F1B729507569005B8471 /* localNotification.swift in Sources */,
 				61A5B4ED294B82E600504634 /* UserIcon.swift in Sources */,
@@ -289,6 +304,7 @@
 				615671DF2958A551005F5D4C /* FamilyPaymentView.swift in Sources */,
 				6185A66F2961F284002EA744 /* OneTimeRechargeOptions.swift in Sources */,
 				61CA34D42955D5EC00603B57 /* StatView.swift in Sources */,
+				61AEEFAF29638A4200F048D4 /* mainStatView.swift in Sources */,
 				61A5B4DB294B65D200504634 /* subApp.swift in Sources */,
 				6185A6712961F298002EA744 /* CardConnectionOptions.swift in Sources */,
 				61D76536294B9A8300A14FD3 /* AddNewSubPlusButton.swift in Sources */,
@@ -515,6 +531,22 @@
 				kind = branch;
 			};
 		};
+		61AEEFB029638BE000F048D4 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = "2.0.0-beta.8";
+			};
+		};
+		61AEEFB729639A6000F048D4 /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -522,6 +554,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 613ED541295F003E0010DD9B /* XCRemoteSwiftPackageReference "ColorKit" */;
 			productName = ColorKit;
+		};
+		61AEEFB129638BE000F048D4 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AEEFB029638BE000F048D4 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+		61AEEFB829639A6000F048D4 /* SwiftPieChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AEEFB729639A6000F048D4 /* XCRemoteSwiftPackageReference "SwiftPieChart" */;
+			productName = SwiftPieChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
